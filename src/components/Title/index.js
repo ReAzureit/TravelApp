@@ -1,13 +1,12 @@
-import React from 'react';
-import {Text} from 'react-native';
-import {styles} from './styles';
+import React from "react";
+import { Text } from "react-native";
 
-const Title = (props) => {
-  return <Text style={styles.title}>{props.title}</Text>;
+const Title = ({ style, title }) => {
+	return <Text style={style}>{title}</Text>;
 };
 
 Title.defaultProps = {
-  title:'Default Title'
-}
+	title: "Default Title"
+};
 
-export default Title;
+export default React.memo(Title);
