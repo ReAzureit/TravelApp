@@ -1,29 +1,49 @@
 module.exports = {
-  "parser": "babel-eslint",
-  "parserOptions": {
-  "ecmaFeatures": {
-    "jsx": true
-  }
-},
-  "env": {
-    "browser": true,
-    "react-native/react-native": true
-  },
-  "plugins": ["react", "react-native"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "rules": {
-    "react-native/no-unused-styles": 2,
-    "react-native/split-platform-components": 2,
-    "react-native/no-inline-styles": 2,
-    "react-native/no-color-literals": 2,
-    "react-native/no-raw-text": 2,
-    "react-native/sort-styles": [
-      "error",
-      "asc",
-       {
-         "ignoreClassNames": false,
-         "ignoreStyleProperties": false
-       }
-     ]
-  }
+	root: true,
+	env: {
+		node: true,
+		browser: true,
+		es2021: true,
+		"react-native/react-native": true,
+		"jest/globals": true
+	},
+	extends: [
+		"plugin:react/recommended",
+		"prettier",
+		"eslint:recommended",
+		"plugin:jest/recommended"
+	],
+
+	parserOptions: {
+		ecmaFeatures: {
+			jsx: true
+		},
+		ecmaVersion: "latest",
+		sourceType: "module"
+	},
+
+	plugins: ["react", "react-native", "detox"],
+	ignorePatterns: ["!.*", "dist", "node_modules"],
+	rules: {
+		indent: [
+			"error",
+			"tab",
+			{
+				SwitchCase: 1,
+				ignoredNodes: ["ConditionalExpression"]
+			}
+		],
+		"linebreak-style": ["error", "unix"],
+		quotes: ["error", "double"],
+		semi: ["error", "always"],
+		"no-console": ["error"],
+		"no-unused-vars": ["error", { vars: "all" }],
+		"react/prop-types": "off"
+	},
+
+	settings: {
+		react: {
+			version: "detect"
+		}
+	}
 };
