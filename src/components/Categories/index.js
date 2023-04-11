@@ -7,11 +7,14 @@ const Categories = ({ selectedCategories, categories, onCategoryPress }) => {
 		<FlatList
 			horizontal
 			showsHorizontalScrollIndicator={false}
+			keyExtractor={(item) => item}
 			data={categories}
-			style={styles.container}
-			renderItem={({ item }) => (
+			renderItem={({ item, index }) => (
 				<TouchableOpacity
-					style={styles.categoriesContainer(selectedCategories === item)}
+					style={styles.categoriesContainer(
+						selectedCategories === item,
+						index === 0
+					)}
 					onPress={() => onCategoryPress(item)}
 				>
 					<Text style={styles.categoriesTitle(selectedCategories === item)}>

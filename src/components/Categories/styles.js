@@ -6,14 +6,12 @@ export const styles = StyleSheet.create({
 		fontSize: 12,
 		paddingVertical: 2
 	}),
-	categoriesContainer: (selected) => ({
+	categoriesContainer: (selected, firstIndex) => ({
 		marginRight: 17,
 		borderBottomColor: "#4681A3",
 		fontSize: 12,
-		marginVertical: 14,
-		borderBottomWidth: selected ? 1 : 0
-	}),
-	container: {
-		marginRight: -32
-	}
+		marginBottom: 14,
+		borderBottomWidth: selected ? 1 : 0,
+		marginLeft: firstIndex ? 32 : 0
+	})
 });
