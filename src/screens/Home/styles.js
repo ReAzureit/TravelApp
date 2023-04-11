@@ -23,5 +23,11 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		flexWrap: "wrap"
 	},
-	titleContainer: { margin: 32 }
+	titleContainer: { margin: 32 },
+	emptyText: {
+		textAlign: "center",
+		marginTop: 40,
+		fontSize: 12,
+		color: "rgba(0,0,0,0.5)"
+	}
 });

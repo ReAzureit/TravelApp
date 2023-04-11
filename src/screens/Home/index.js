@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, FlatList } from "react-native";
+import { SafeAreaView, View, FlatList, Text } from "react-native";
 import Categories from "../../components/Categories";
 import Title from "../../components/Title";
 import { styles } from "./styles";
 import AttractionCard from "../../components/AttractionCard";
 import attractions from "../../data/attractions.json";
-
+import categories from "../../data/categories.json";
 const Home = () => {
 	const [selectedCategory, setSelectedCategory] = useState("All");
 	const [attractionData, setAttractionData] = useState([]);
@@ -13,12 +13,24 @@ const Home = () => {
 	useEffect(() => {
 		setAttractionData(attractions);
 	}, []);
-
+	useEffect(() => {
+		if (selectedCategory === "All") {
+			setAttractionData(attractions);
+		} else {
+			const filteredData = attractions.filter((item) =>
+				item?.categories.includes(selectedCategory)
+			);
+			setAttractionData(filteredData);
+		}
+	}, [selectedCategory]);
 	return (
 		<SafeAreaView style={styles.container}>
 			<FlatList
 				data={attractionData}
 				keyExtractor={(item) => String(item.id)}
+				ListEmptyComponent={
+					<Text style={styles.emptyText}>No items found</Text>
+				}
 				ListHeaderComponent={
 					<>
 						<View style={styles.titleContainer}>
@@ -38,14 +50,7 @@ const Home = () => {
 						<Categories
 							selectedCategories={selectedCategory}
 							onCategoryPress={setSelectedCategory}
-							categories={[
-								"All",
-								"Popular",
-								"Recommended",
-								"Random",
-								"Most Viewed",
-								"Most Visited"
-							]}
+							categories={["All", ...categories]}
 						/>
 					</>
 				}
