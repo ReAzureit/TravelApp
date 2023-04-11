@@ -8,11 +8,11 @@ const Categories = ({ selectedCategories, categories, onCategoryPress }) => {
 			horizontal
 			showsHorizontalScrollIndicator={false}
 			data={categories}
+			style={styles.container}
 			renderItem={({ item }) => (
 				<TouchableOpacity
-					onPress={() => {
-						onCategoryPress(item);
-					}}
+					style={styles.categoriesContainer(selectedCategories === item)}
+					onPress={() => onCategoryPress(item)}
 				>
 					<Text style={styles.categoriesTitle(selectedCategories === item)}>
 						{item}
