@@ -23,5 +23,8 @@ export const styles = StyleSheet.create({
 	},
 	container: {
 		backgroundColor: "white"
+	},
+	attractionContainer: {
+		flexDirection: "row"
 	}
 });
