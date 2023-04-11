@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 const { width } = Dimensions.get("window");
 export const styles = StyleSheet.create({
 	card: {
-		marginRight: 16,
+		marginBottom: 12,
 		padding: 4,
 		borderWidth: 1,
 		borderColor: "#E2E2E2",
