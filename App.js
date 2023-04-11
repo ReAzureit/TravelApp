@@ -1,15 +1,8 @@
-import React from 'react';
-import {SafeAreaView, View} from 'react-native';
-import Home from './src/screens/Home';
+import React from "react";
+import Home from "./src/screens/Home";
 
 const App = () => {
-  return (
-    <SafeAreaView>
-      <View>
-        <Home />
-      </View>
-    </SafeAreaView>
-  );
+	return <Home />;
 };
 
 export default App;
