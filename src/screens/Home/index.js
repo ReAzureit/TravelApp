@@ -6,10 +6,11 @@ import { styles } from "./styles";
 import AttractionCard from "../../components/AttractionCard";
 import attractions from "../../data/attractions.json";
 import categories from "../../data/categories.json";
+import { useNavigation } from "@react-navigation/native";
 const Home = () => {
 	const [selectedCategory, setSelectedCategory] = useState("All");
 	const [attractionData, setAttractionData] = useState([]);
-
+	const navigation = useNavigation();
 	useEffect(() => {
 		setAttractionData(attractions);
 	}, []);
@@ -60,6 +61,7 @@ const Home = () => {
 						cardStyle={
 							index % 2 === 0 ? { marginRight: 12, marginLeft: 32 } : {}
 						}
+						onPress={() => navigation.navigate("AttractionDetails", { item })}
 						title={item.name}
 						subtitle={item.city}
 						imageSrc={

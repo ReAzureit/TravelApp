@@ -33,7 +33,7 @@ module.exports = {
 				ignoredNodes: ["ConditionalExpression"]
 			}
 		],
-		"linebreak-style": ["error", "unix"],
+		"no-mixed-spaces-and-tabs": "off",
 		quotes: ["error", "double"],
 		semi: ["error", "always"],
 		"no-console": ["error"],
