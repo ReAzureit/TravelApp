@@ -46,5 +46,14 @@ export const styles = StyleSheet.create({
 		borderRadius: 10,
 		justifyContent: "center",
 		alignItems: "center"
-	}
+	},
+	headerContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		marginVertical: 40
+	},
+	textContainer: {},
+	title: { color: "black" },
+	city: { fontSize: 20, fontWeight: "400", color: "black", marginTop: 8 }
 });

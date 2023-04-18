@@ -9,6 +9,8 @@ import {
 	Pressable
 } from "react-native";
 import { styles } from "./styles";
+import Title from "../../components/Title";
+import InfoCard from "../../components/InfoCard";
 
 const AttractionDetails = ({ route }) => {
 	const { item } = route?.params || {};
@@ -64,7 +66,23 @@ const AttractionDetails = ({ route }) => {
 						: null}
 				</Pressable>
 			</ImageBackground>
-			<Text>{item?.name}</Text>
+			<View style={styles.headerContainer}>
+				<View style={styles.textContainer}>
+					<Title style={styles.title} title={item?.name} />
+					<Text style={styles.city}>{item?.city}</Text>
+				</View>
+				<Title style={styles.title} title={item?.entry_price} />
+			</View>
+
+			<InfoCard
+				title={item?.address}
+				icon={require("../../assets/locationCircle.png")}
+			/>
+			<InfoCard
+				title={`OPEN
+${item?.opening_time} - ${item?.closing_time}`}
+				icon={require("../../assets/schedule.png")}
+			/>
 		</SafeAreaView>
 	);
 };
