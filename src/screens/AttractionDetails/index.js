@@ -22,6 +22,9 @@ const AttractionDetails = ({ route }) => {
 	const onBack = () => {
 		navigation.goBack();
 	};
+	const onGalleryNavigate = () => {
+		navigation.navigate("Gallery", { images: item?.images });
+	};
 	return (
 		<SafeAreaView style={styles.container}>
 			<ImageBackground
@@ -43,7 +46,7 @@ const AttractionDetails = ({ route }) => {
 						/>
 					</Pressable>
 				</View>
-				<Pressable style={styles.footer}>
+				<Pressable onPress={onGalleryNavigate} style={styles.footer}>
 					{slicedImages?.length
 						? slicedImages.map((image, index) => {
 							return (
