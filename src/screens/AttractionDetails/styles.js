@@ -53,7 +53,12 @@ export const styles = StyleSheet.create({
 		alignItems: "center",
 		marginVertical: 40
 	},
-	textContainer: {},
+	textContainer: { maxWidth: "70%" },
 	title: { color: "black" },
-	city: { fontSize: 20, fontWeight: "400", color: "black", marginTop: 8 }
+	city: { fontSize: 20, fontWeight: "400", color: "black", marginTop: 8 },
+	mapContainer: {
+		width: "100%",
+		height: 200,
+		paddingBottom: 40
+	}
 });
