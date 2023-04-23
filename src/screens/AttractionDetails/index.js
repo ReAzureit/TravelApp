@@ -13,6 +13,8 @@ import { styles } from "./styles";
 import Title from "../../components/Title";
 import InfoCard from "../../components/InfoCard";
 import { ScrollView } from "react-native-gesture-handler";
+import Share from "react-native-share";
+import ImgToBase64 from "react-native-image-base64";
 
 const AttractionDetails = ({ route }) => {
 	const { item } = route?.params || {};
@@ -36,6 +38,21 @@ const AttractionDetails = ({ route }) => {
 	const showFullSCreenMap = () => {
 		navigation.navigate("Map", { item });
 	};
+	const onShare = async () => {
+		try {
+			const imageWithoutParams = mainImage.split("?")[0];
+			const imageParts = imageWithoutParams.split(".");
+			const imageExtension = imageParts[imageParts.length - 1];
+			const base64Image = await ImgToBase64.getBase64String(mainImage);
+			Share.open({
+				title: item?.name,
+				url: `data:image/${imageExtension || "jpg"};base64,${base64Image}`,
+				message: "Hey, I wanted to share this amazing attractions"
+			});
+		} catch (e) {
+			return;
+		}
+	};
 	return (
 		<SafeAreaView style={styles.container}>
 			<ScrollView showsVerticalScrollIndicator={false}>
@@ -51,7 +68,7 @@ const AttractionDetails = ({ route }) => {
 								source={require("../../assets/back.png")}
 							/>
 						</Pressable>
-						<Pressable hitSlop={8}>
+						<Pressable onPress={onShare} hitSlop={8}>
 							<Image
 								style={styles.icon}
 								source={require("../../assets/share.png")}
