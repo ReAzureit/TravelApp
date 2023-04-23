@@ -59,6 +59,14 @@ export const styles = StyleSheet.create({
 	mapContainer: {
 		width: "100%",
 		height: 200,
-		paddingBottom: 40
+		borderRadius: 10
+	},
+	showFullScreenText: {
+		fontWeight: "bold",
+		fontSize: 16,
+		color: "#4681A3",
+		marginBottom: 140,
+		marginTop: 10,
+		textAlign: "center"
 	}
 });

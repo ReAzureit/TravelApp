@@ -33,6 +33,9 @@ const AttractionDetails = ({ route }) => {
 	const onGalleryNavigate = () => {
 		navigation.navigate("Gallery", { images: item?.images });
 	};
+	const showFullSCreenMap = () => {
+		navigation.navigate("Map", { item });
+	};
 	return (
 		<SafeAreaView style={styles.container}>
 			<ScrollView showsVerticalScrollIndicator={false}>
@@ -98,6 +101,9 @@ ${item?.opening_time} - ${item?.closing_time}`}
 				<MapView style={styles.mapContainer} initialRegion={coordinate}>
 					<Marker coordinate={coordinate} title={item?.name} />
 				</MapView>
+				<Text onPress={showFullSCreenMap} style={styles.showFullScreenText}>
+					Show full screen map
+				</Text>
 			</ScrollView>
 		</SafeAreaView>
 	);
